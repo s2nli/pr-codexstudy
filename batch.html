@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Batch · CODEX STUDYS</title>
+<meta name="theme-color" content="#090b10">
+<link rel="icon" href="assets/mj-icon-192.png">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/mj-icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080a0f;--panel-solid:#11151f;--panel-soft:#151b27;--line:rgba(255,255,255,.09);--line-strong:rgba(255,255,255,.16);--text:#f4f6fb;--muted:#8d96a8;--muted-bright:#b4bdcd;--brand:#8b7cff;--brand-bright:#a69cff;--mint:#55ddbb;--orange:#ffb36b}
+html[data-theme="light"]{--bg:#f4f5f9;--panel-solid:#fff;--panel-soft:#eef0f6;--line:rgba(20,22,35,.1);--line-strong:rgba(20,22,35,.18);--text:#14161f;--muted:#5b6072;--muted-bright:#383c4a;--brand:#6c5ce7;--brand-bright:#5b46e0}
+html[data-theme="sandalwood"]{--bg:#1c130c;--panel-solid:#2b1f14;--panel-soft:#332417;--line:rgba(255,225,190,.1);--line-strong:rgba(255,225,190,.18);--text:#f6ead9;--muted:#b89a7c;--muted-bright:#d9c1a3;--brand:#cd8a4a;--brand-bright:#e6a75f}
+html[data-theme="forest-emerald"]{--bg:#06140f;--panel-solid:#0e2318;--panel-soft:#122a1d;--line:rgba(180,255,220,.09);--line-strong:rgba(180,255,220,.17);--text:#eafff3;--muted:#83b39c;--muted-bright:#aed7c1;--brand:#2fbf7a;--brand-bright:#3fdd91}
+html[data-theme="ocean-deep"]{--bg:#050e17;--panel-solid:#0c1e2e;--panel-soft:#102636;--line:rgba(170,225,255,.09);--line-strong:rgba(170,225,255,.17);--text:#eaf6ff;--muted:#7ea3bd;--muted-bright:#a9cbe0;--brand:#2196e0;--brand-bright:#4db4ff}
+html[data-theme="sakura-blossom"]{--bg:#fff3f6;--panel-solid:#fff;--panel-soft:#ffe4ec;--line:rgba(180,40,80,.1);--line-strong:rgba(180,40,80,.18);--text:#3c1420;--muted:#a26478;--muted-bright:#7a3a4c;--brand:#ec6f96;--brand-bright:#e14f7e}
+html[data-theme="dracula-midnight"]{--bg:#14121f;--panel-solid:#241f3d;--panel-soft:#2b2549;--line:rgba(220,200,255,.09);--line-strong:rgba(220,200,255,.17);--text:#f3ecff;--muted:#a08fc9;--muted-bright:#c6b7ea;--brand:#bd93f9;--brand-bright:#d6acff}
+html[data-theme="lavender-mist"]{--bg:#f5f2fc;--panel-solid:#fff;--panel-soft:#ece5fb;--line:rgba(80,50,140,.1);--line-strong:rgba(80,50,140,.18);--text:#2c2140;--muted:#7a6a9c;--muted-bright:#4d3d70;--brand:#9b7be0;--brand-bright:#855fdb}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",system-ui,sans-serif;min-height:100vh;padding-bottom:env(safe-area-inset-bottom)}
+h1,h2,h3,.hd{font-family:"Space Grotesk","DM Sans",sans-serif}
+button{font:inherit;color:inherit;cursor:pointer}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:14px 16px;padding-top:calc(14px + env(safe-area-inset-top));background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.back{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--panel-solid);display:grid;place-items:center;flex:none;color:var(--brand)}
+.back svg{width:20px;height:20px}
+.topbar h1{font-size:19px;margin:0;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wrap{max-width:760px;margin:0 auto;padding:18px 16px 40px}
+.hero{border:1px solid var(--line);background:var(--panel-solid);border-radius:22px;overflow:hidden}
+.hero img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--panel-soft)}
+.hero-body{padding:18px 18px 20px}
+.hero-body h2{margin:0 0 6px;font-size:26px;line-height:1.15;font-weight:700}
+.hero-body p{margin:0 0 14px;color:var(--muted-bright);font-size:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line-strong);border-radius:999px;padding:7px 15px;font-size:14px;color:var(--muted-bright)}
+.chip.on{border-color:color-mix(in srgb,var(--brand) 60%,transparent);color:var(--brand-bright);background:color-mix(in srgb,var(--brand) 10%,transparent)}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 14px}
+.tab{height:50px;border-radius:14px;border:1px solid var(--line);background:transparent;font-weight:600;font-size:16px;color:var(--muted-bright);transition:.15s}
+.tab.active{background:linear-gradient(135deg,var(--brand-bright),var(--brand));color:#fff;border-color:transparent;box-shadow:0 8px 24px color-mix(in srgb,var(--brand) 35%,transparent)}
+.list{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:16px;border:1px solid var(--line);background:var(--panel-solid);border-radius:18px;transition:.15s}
+.row:active{transform:scale(.985)}
+.ico{width:48px;height:48px;border-radius:14px;background:color-mix(in srgb,var(--brand) 14%,var(--panel-soft));display:grid;place-items:center;flex:none;color:var(--brand-bright)}
+.ico svg{width:24px;height:24px}
+.row .t{flex:1;min-width:0}
+.row .t b{display:block;font-size:18px;font-weight:600;letter-spacing:.2px;overflow-wrap:anywhere}
+.row .t span{display:block;color:var(--muted);font-size:15px;margin-top:3px}
+.chev{width:18px;height:18px;color:var(--muted);flex:none}
+.sub-head{display:flex;align-items:center;gap:10px;margin:2px 0 12px}
+.sub-head .back{width:40px;height:40px}
+.sub-head b{font-size:18px;font-family:"Space Grotesk",sans-serif;flex:1;min-width:0;overflow-wrap:anywhere}
+.search{width:100%;height:46px;border-radius:14px;border:1px solid var(--line);background:var(--panel-solid);color:var(--text);padding:0 14px;font:inherit;font-size:15px;margin-bottom:12px;outline:none}
+.search:focus{border-color:var(--brand)}
+.lec{border:1px solid var(--line);background:var(--panel-solid);border-radius:18px;padding:14px}
+.lec-top{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:0;padding:0}
+.num{min-width:34px;height:34px;border-radius:10px;background:var(--panel-soft);display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--muted-bright);flex:none}
+.lec-top .tt{flex:1;font-weight:600;font-size:16px;line-height:1.3;overflow-wrap:anywhere}
+.play{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--brand-bright),var(--brand));display:grid;place-items:center;color:#fff;flex:none}
+.play svg{width:18px;height:18px;margin-left:2px}
+.play.off{background:var(--panel-soft);color:var(--muted)}
+.files{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;padding-left:46px}
+.file{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;border:1px solid var(--line-strong);background:transparent;font-size:13px;font-weight:600;color:var(--brand-bright);text-decoration:none}
+.file svg{width:14px;height:14px}
+.empty{padding:40px 16px;text-align:center;color:var(--muted)}
+.about{border:1px solid var(--line);background:var(--panel-solid);border-radius:18px;padding:18px}
+.about h3{margin:0 0 8px;font-size:18px}
+.about p{margin:0 0 14px;color:var(--muted-bright);line-height:1.6}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fact{border:1px solid var(--line);border-radius:14px;padding:12px;background:var(--panel-soft)}
+.fact span{display:block;color:var(--muted);font-size:13px}.fact b{display:block;margin-top:3px;font-size:16px}
+.skel{height:76px;border-radius:18px;background:linear-gradient(90deg,var(--panel-soft),var(--panel-solid),var(--panel-soft));background-size:200% 100%;animation:sh 1.2s infinite}
+@keyframes sh{to{background-position:-200% 0}}
+@media(min-width:700px){.wrap{padding-top:28px}}
+</style>
+<script>
+(function(){var s=localStorage.getItem("codex-studys-theme");if(s&&s!=="system")document.documentElement.setAttribute("data-theme",s)})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <button class="back" id="topBack" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <h1 id="topTitle">Loading…</h1>
+</header>
+<main class="wrap">
+  <section class="hero" id="hero" hidden>
+    <img id="heroImg" alt="" referrerpolicy="no-referrer">
+    <div class="hero-body">
+      <h2 id="heroTitle"></h2>
+      <p id="heroSub"></p>
+      <div class="chips" id="heroChips"></div>
+    </div>
+  </section>
+  <nav class="tabs" id="tabs" hidden>
+    <button class="tab active" data-tab="lectures">Lectures</button>
+    <button class="tab" data-tab="notes">Notes</button>
+    <button class="tab" data-tab="about">About</button>
+  </nav>
+  <div id="view"><div class="list"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div></div>
+</main>
+<script>
+(function(){
+  var ICON={
+    video:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="3" y="6.5" width="12.5" height="11" rx="2.4"/><path d="M15.5 10.5 20.2 8a.8.8 0 0 1 1.2.7v6.6a.8.8 0 0 1-1.2.7l-4.7-2.5"/></svg>',
+    doc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7l4.5 4.5v11A1.5 1.5 0 0 1 17 20.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5Z"/><path d="M14 3.5V8h4.5M8.5 13h7M8.5 16.5h5"/></svg>',
+    chev:'<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>',
+    play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>',
+    back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>'
+  };
+  var $=function(s){return document.querySelector(s)};
+  var esc=function(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]})};
+  var params=new URLSearchParams(location.search), id=params.get("id");
+  var batch=null, subjects=[], tab="lectures", sub=null, q="";
+
+  function go(){ if(history.length>1 && document.referrer.indexOf(location.host)>-1) history.back(); else location.href="index.html"; }
+  $("#topBack").addEventListener("click",function(){ if(sub!==null){ sub=null; q=""; push(); render(); } else go(); });
+
+  function push(){ var h="#"+tab+(sub!==null?"/"+sub:""); if(location.hash!==h) history.pushState(null,"",location.search+h); }
+  function readHash(){ var m=(location.hash||"").replace("#","").split("/"); tab=["lectures","notes","about"].indexOf(m[0])>-1?m[0]:"lectures"; sub=m[1]!==undefined&&subjects[+m[1]]?+m[1]:null; }
+  window.addEventListener("popstate",function(){ readHash(); q=""; render(); });
+
+  function fail(msg){ $("#topTitle").textContent="Batch not found"; $("#view").innerHTML='<div class="empty">'+esc(msg)+'<br><br><button class="tab active" style="padding:0 22px" onclick="location.href=\'index.html\'">Back to batches</button></div>'; }
+
+  Promise.all([
+    fetch("batches.json",{cache:"no-store"}).then(function(r){return r.json()}),
+    fetch("batch-data.json",{cache:"no-cache"}).then(function(r){return r.json()})
+  ]).then(function(res){
+    batch=(res[0].batches||[]).filter(function(b){return (b._id||b.batch_id)===id})[0];
+    var d=res[1][id];
+    if(!batch||!d) return fail("This batch is not available right now.");
+    subjects=d.subjects||[];
+    document.title=batch.name+" · CODEX STUDYS";
+    $("#topTitle").textContent=batch.name;
+    var img=$("#heroImg"); img.src=batch.previewImage||"assets/codex-telegram.png"; img.onerror=function(){img.onerror=null;img.src="assets/codex-telegram.png"};
+    $("#heroTitle").textContent=batch.name; $("#heroSub").textContent=batch.byName||"";
+    $("#heroChips").innerHTML='<span class="chip on">'+esc(batch.mode||"Recorded")+'</span>'+(batch.validity?'<span class="chip">'+esc(batch.validity)+'</span>':"");
+    $("#hero").hidden=false; $("#tabs").hidden=false;
+    try{ window.CXProfile&&window.CXProfile.trackBatch&&window.CXProfile.trackBatch(batch); }catch(e){}
+    readHash(); render();
+  }).catch(function(){ fail("Could not load this batch. Please check your connection and try again."); });
+
+  document.querySelectorAll(".tab").forEach(function(b){ b.addEventListener("click",function(){ tab=b.dataset.tab; sub=null; q=""; push(); render(); }); });
+
+  function notesOf(s){ var out=[]; s.lectures.forEach(function(l){ l.n.forEach(function(n){ out.push({t:l.t,l:n[0],u:n[1]}); }); }); s.tests.forEach(function(t){ if(t.u) out.push({t:t.t,l:"Test",u:t.u}); }); return out; }
+  function lecCount(s){ return s.lectures.filter(function(l){return l.v}).length; }
+
+  function render(){
+    document.querySelectorAll(".tab").forEach(function(b){ b.classList.toggle("active",b.dataset.tab===tab); });
+    var v=$("#view");
+    if(tab==="about") return v.innerHTML=aboutHtml();
+    if(sub===null) return v.innerHTML=subjectList();
+    v.innerHTML=detail(); var s=$("#sq"); if(s){ s.addEventListener("input",function(){ q=s.value; $("#items").innerHTML=items(); }); }
+  }
+
+  function subjectList(){
+    if(!subjects.length) return '<div class="empty">Nothing here yet.</div>';
+    var h='<div class="list">';
+    subjects.forEach(function(s,i){
+      var n=tab==="lectures"?s.lectures.length:notesOf(s).length;
+      if(tab==="notes"&&!n) return;
+      h+='<button class="row" data-sub="'+i+'"><span class="ico">'+(tab==="lectures"?ICON.video:ICON.doc)+'</span><span class="t"><b>'+esc(s.name)+'</b><span>'+n+(tab==="lectures"?" lecture":" file")+(n===1?"":"s")+'</span></span>'+ICON.chev+'</button>';
+    });
+    return h+'</div>';
+  }
+
+  function detail(){
+    var s=subjects[sub];
+    return '<div class="sub-head"><button class="back" id="subBack" aria-label="Back to subjects">'+ICON.back+'</button><b>'+esc(s.name)+'</b></div>'+
+      '<input class="search" id="sq" type="search" placeholder="Search in '+esc(s.name)+'…" autocomplete="off">'+
+      '<div class="list" id="items">'+items()+'</div>';
+  }
+
+  function items(){
+    var s=subjects[sub], k=q.trim().toLowerCase(), h="";
+    if(tab==="lectures"){
+      s.lectures.forEach(function(l,i){
+        if(k&&l.t.toLowerCase().indexOf(k)<0) return;
+        var files=l.n.map(function(n){ return '<a class="file" target="_blank" rel="noopener" href="'+esc(n[1])+'">'+ICON.doc+esc(n[0])+'</a>'; }).join("");
+        h+='<div class="lec"><button class="lec-top" '+(l.v?'data-open="'+esc(l.v)+'"':'disabled')+'><span class="num">'+(i+1)+'</span><span class="tt">'+esc(l.t)+'</span><span class="play'+(l.v?'':' off')+'">'+ICON.play+'</span></button>'+(files?'<div class="files">'+files+'</div>':'')+'</div>';
+      });
+      s.tests.forEach(function(t){ if(!t.u||(k&&t.t.toLowerCase().indexOf(k)<0)) return; h+='<div class="lec"><a class="lec-top" target="_blank" rel="noopener" href="'+esc(t.u)+'" style="text-decoration:none;color:inherit"><span class="num">T</span><span class="tt">'+esc(t.t)+'</span><span class="play">'+ICON.play+'</span></a></div>'; });
+    } else {
+      notesOf(s).forEach(function(n){ if(k&&(n.t+" "+n.l).toLowerCase().indexOf(k)<0) return; h+='<a class="row" target="_blank" rel="noopener" href="'+esc(n.u)+'" style="text-decoration:none;color:inherit"><span class="ico">'+ICON.doc+'</span><span class="t"><b style="font-size:16px">'+esc(n.t)+'</b><span>'+esc(n.l)+'</span></span>'+ICON.chev+'</a>'; });
+    }
+    return h||'<div class="empty">Nothing matched.</div>';
+  }
+
+  $("#view").addEventListener("click",function(e){
+    var o=e.target.closest("[data-open]"); if(o){ window.open(o.getAttribute("data-open"),"_blank","noopener"); return; }
+    var sb=e.target.closest("[data-sub]"); if(sb){ sub=+sb.dataset.sub; q=""; push(); render(); window.scrollTo(0,0); return; }
+    if(e.target.closest("#subBack")){ sub=null; q=""; push(); render(); }
+  });
+
+  function aboutHtml(){
+    var lec=subjects.reduce(function(a,s){return a+s.lectures.length},0), nf=subjects.reduce(function(a,s){return a+notesOf(s).length},0);
+    return '<div class="about"><h3>About this batch</h3><p>'+esc(batch.name)+' — '+esc(batch.byName||"")+'. Recorded lectures with notes and practice material, organised subject by subject.</p>'+
+      '<div class="facts"><div class="fact"><span>Subjects</span><b>'+subjects.length+'</b></div><div class="fact"><span>Lectures</span><b>'+lec+'</b></div><div class="fact"><span>Notes &amp; files</span><b>'+nf+'</b></div><div class="fact"><span>Language</span><b>'+esc(batch.language||"Hinglish")+'</b></div></div></div>';
+  }
+})();
+</script>
+</body>
+</html>

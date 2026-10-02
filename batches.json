@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "batches": [
+    { "_id": "pc-batch-2", "name": "PC Batch 2.0", "byName": "Complete Computer course for SSC exams", "language": "Hinglish", "previewImage": "assets/batch-pc2.jpg", "type": "E_BATCH", "slug": "pc-batch-2", "validity": "1 year", "mode": "Recorded", "subBatches": [] },
+    { "_id": "parmar-gk-4", "name": "Parmar 4.0 GK", "byName": "Dedicated GK batch for SSC exams", "language": "Hinglish", "previewImage": "assets/batch-gk4.jpg", "type": "E_BATCH", "slug": "parmar-gk-4", "validity": "1 year", "mode": "Recorded", "subBatches": [] },
+    { "_id": "parmar-reasoning", "name": "Reasoning Foundation VOD", "byName": "Dedicated Reasoning batch for SSC exams", "language": "Hinglish", "previewImage": "assets/batch-reasoning.jpg", "type": "E_BATCH", "slug": "parmar-reasoning", "validity": "1 year", "mode": "Recorded", "subBatches": [] },
+    { "_id": "maths-foundation", "name": "Maths Foundation Batch", "byName": "Complete Maths foundation for SSC exams", "language": "Hinglish", "previewImage": "assets/batch-maths.jpg", "type": "E_BATCH", "slug": "maths-foundation", "validity": "1 year", "mode": "Recorded", "subBatches": [] }
+  ]
+}
